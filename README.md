@@ -19,50 +19,51 @@ The parameters of the neural network (weights and biases) are initialized random
 ### 4. **Activation Functions**
 
 #### Rectified Linear Unit (ReLU):
-$\text{ReLU}(Z) = \max(0, Z) \
+
+$$\text{ReLU}(Z) = \max(0, Z) \$$
 
 #### Softmax:
-\[ \text{softmax}(Z_i) = \frac{e^{Z_i}}{\sum_{j=1}^{10} e^{Z_j}} \]
+$$ \text{softmax}(Z_i) = \frac{e^{Z_i}}{\sum_{j=1}^{10} e^{Z_j}} $$
 
 ### 5. **Forward Propagation**
 
 The forward propagation step computes the activations at each layer:
 
-\[ Z^{[1]} = W^{[1]} \cdot X + b^{[1]} \]
+$$ Z^{[1]} = W^{[1]} \cdot X + b^{[1]} $$
 
-\[ A^{[1]} = \text{ReLU}(Z^{[1]}) \]
+$$ A^{[1]} = \text{ReLU}(Z^{[1]}) $$
 
-\[ Z^{[2]} = W^{[2]} \cdot A^{[1]} + b^{[2]} \]
+$$ Z^{[2]} = W^{[2]} \cdot A^{[1]} + b^{[2]} $$
 
-\[ A^{[2]} = \text{softmax}(Z^{[2]}) \]
+$$ A^{[2]} = \text{softmax}(Z^{[2]}) $$
 
 ### 6. **Backward Propagation**
 
 The backward propagation step computes the gradients with respect to the parameters:
 
-\[ \frac{\partial \mathcal{L}}{\partial Z^{[2]}} = A^{[2]} - \text{one\_hot}(Y) \]
+$$ \frac{\partial \mathcal{L}}{\partial Z^{[2]}} = A^{[2]} - \text{one\_hot}(Y) $$
 
-\[ \frac{\partial W^{[2]}}{\partial \mathcal{L}} = \frac{1}{m} \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \cdot (A^{[1]})^T \]
+$$ \frac{\partial W^{[2]}}{\partial \mathcal{L}} = \frac{1}{m} \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \cdot (A^{[1]})^T $$
 
-\[ \frac{\partial b^{[2]}}{\partial \mathcal{L}} = \frac{1}{m} \sum_{i=1}^{m} \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \]
+$$ \frac{\partial b^{[2]}}{\partial \mathcal{L}} = \frac{1}{m} \sum_{i=1}^{m} \frac{\partial Z^{[2]}}{\partial \mathcal{L}} $$
 
-\[ \frac{\partial Z^{[1]}}{\partial \mathcal{L}} = (W^{[2]})^T \cdot \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \cdot \text{ReLU}'(Z^{[1]}) \]
+$$ \frac{\partial Z^{[1]}}{\partial \mathcal{L}} = (W^{[2]})^T \cdot \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \cdot \text{ReLU}'(Z^{[1]}) $$
 
-\[ \frac{\partial W^{[1]}}{\partial \mathcal{L}} = \frac{1}{m} \frac{\partial Z^{[1]}}{\partial \mathcal{L}} \cdot X^T \]
+$$ \frac{\partial W^{[1]}}{\partial \mathcal{L}} = \frac{1}{m} \frac{\partial Z^{[1]}}{\partial \mathcal{L}} \cdot X^T $$
 
-\[ \frac{\partial b^{[1]}}{\partial \mathcal{L}} = \frac{1}{m} \sum_{i=1}^{m} \frac{\partial Z^{[1]}}{\partial \mathcal{L}} \]
+$$ \frac{\partial b^{[1]}}{\partial \mathcal{L}} = \frac{1}{m} \sum_{i=1}^{m} \frac{\partial Z^{[1]}}{\partial \mathcal{L}} $$
 
 ### 7. **Parameter Update**
 
 The parameters are updated using gradient descent:
 
-\[ W^{[1]} = W^{[1]} - \alpha \frac{\partial W^{[1]}}{\partial \mathcal{L}} \]
+$$ W^{[1]} = W^{[1]} - \alpha \frac{\partial W^{[1]}}{\partial \mathcal{L}} $$
 
-\[ b^{[1]} = b^{[1]} - \alpha \frac{\partial b^{[1]}}{\partial \mathcal{L}} \]
+$$ b^{[1]} = b^{[1]} - \alpha \frac{\partial b^{[1]}}{\partial \mathcal{L}} $$
 
-\[ W^{[2]} = W^{[2]} - \alpha \frac{\partial W^{[2]}}{\partial \mathcal{L}} \]
+$$ W^{[2]} = W^{[2]} - \alpha \frac{\partial W^{[2]}}{\partial \mathcal{L}} $$
 
-\[ b^{[2]} = b^{[2]} - \alpha \frac{\partial b^{[2]}}{\partial \mathcal{L}} \]
+$$ b^{[2]} = b^{[2]} - \alpha \frac{\partial b^{[2]}}{\partial \mathcal{L}} $$
 
 ### 8. **Training the Neural Network**
 
