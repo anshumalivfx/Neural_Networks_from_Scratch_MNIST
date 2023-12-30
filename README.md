@@ -19,7 +19,7 @@ The parameters of the neural network (weights and biases) are initialized random
 ### 4. **Activation Functions**
 
 #### Rectified Linear Unit (ReLU):
-$\[ \text{ReLU}(Z) = \max(0, Z) \]
+$\text{ReLU}(Z) = \max(0, Z) \
 
 #### Softmax:
 \[ \text{softmax}(Z_i) = \frac{e^{Z_i}}{\sum_{j=1}^{10} e^{Z_j}} \]
