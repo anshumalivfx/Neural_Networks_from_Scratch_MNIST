@@ -41,7 +41,7 @@ $$ A^{[2]} = \text{softmax}(Z^{[2]}) $$
 
 The backward propagation step computes the gradients with respect to the parameters:
 
-$$ \frac{\partial \mathcal{L}}{\partial Z^{[2]}} = A^{[2]} - \text{one\_hot}(Y) $$
+$$ \frac{\partial \mathcal{L}}{\partial Z^{[2]}} = A^{[2]} - (Y) $$
 
 $$ \frac{\partial W^{[2]}}{\partial \mathcal{L}} = \frac{1}{m} \frac{\partial Z^{[2]}}{\partial \mathcal{L}} \cdot (A^{[1]})^T $$
 
